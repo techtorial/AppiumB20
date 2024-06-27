@@ -2,9 +2,11 @@ package appiumIntro;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.springframework.util.Assert;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -46,6 +48,18 @@ public class ServerConnection {
         for(AndroidElement controller:allControllers){
             System.out.println(controller.getText());
         }
+
+        AndroidElement oneShotButton=androidDriver.findElementByAccessibilityId("One Shot Alarm");
+        Assertions.assertEquals("One Shot Alarm",oneShotButton.getText());
+
+        AndroidElement startButton=androidDriver.findElement(By.id("io.appium.android.apis:id/start_repeating"));
+        Assertions.assertEquals("Start Repeating Alarm",startButton.getText());
+
+        AndroidElement stopButton=androidDriver.findElementByXPath("//android.widget.Button[@content-desc=\"Stop Repeating Alarm\"]");
+        Assertions.assertEquals("Stop Repeating Alarm",stopButton.getText());
+
+
+
 
     }
 
