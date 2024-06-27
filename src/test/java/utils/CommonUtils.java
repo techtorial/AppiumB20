@@ -18,4 +18,9 @@ public class CommonUtils {
         TouchAction touchAction=new TouchAction(androidDriver);
         touchAction.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(androidElement))).perform();
     }
+
+    public static AndroidElement scroll(AndroidDriver<AndroidElement> androidDriver,String locator){
+        return androidDriver.findElementByAndroidUIAutomator(
+                "new UiScrollable(new UiSelector()).scrollIntoView(text(\""+locator+"\"))");
+    }
 }

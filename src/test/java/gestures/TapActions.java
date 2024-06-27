@@ -91,6 +91,34 @@ public class TapActions {
         androidDriver.navigate().back();
     }
 
+    @Test
+    public void scroll() throws MalformedURLException {
+        File file=new File("src/test/resources/ApiDemos-debug-newVersion.apk");
+        //Setup Connection with Inspector
+        DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
+        desiredCapabilities.setCapability("deviceName","sdk_gphone64_arm64");
+        desiredCapabilities.setCapability("platformName","Android");
+        desiredCapabilities.setCapability("app",file.getAbsolutePath());
+        desiredCapabilities.setCapability("newCommandTimeOut",600);
+
+        //Setup Connection with Appium Server
+
+        URL appiumServerUrl=new URL("http://0.0.0.0:4723/wd/hub");
+
+        AndroidDriver<AndroidElement> androidDriver=new AndroidDriver<>(appiumServerUrl,desiredCapabilities);
+        androidDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        AndroidElement viewsButton=androidDriver.findElementByAccessibilityId("Views");
+        CommonUtils.elementTap(androidDriver,viewsButton);
+
+//        AndroidElement textClock=androidDriver.findElementByAccessibilityId("TextClock");
+
+//        AndroidElement scrollTextClock=androidDriver.findElementByAndroidUIAutomator(
+//                "new UiScrollable(new UiSelector()).scrollIntoView(text(\"TextClock\"))");
+//        scrollTextClock.click();
+        CommonUtils.scroll(androidDriver,"TextClock").click();
+    }
+
 
 
 
