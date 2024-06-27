@@ -14,6 +14,7 @@ public class AndroidUIAutomator {
     @Test
     public void locatorTest() throws MalformedURLException {
 
+
         File file=new File("src/test/resources/ApiDemos-debug-newVersion.apk");
         //Setup Connection with Inspector
         DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
@@ -27,7 +28,6 @@ public class AndroidUIAutomator {
         URL appiumServerUrl=new URL("http://0.0.0.0:4723/wd/hub");
 
         AndroidDriver<AndroidElement> androidDriver=new AndroidDriver<>(appiumServerUrl,desiredCapabilities);
-
         AndroidElement animationButton=androidDriver.findElementByAndroidUIAutomator("text(\"Animation\")");
         animationButton.click();
 
