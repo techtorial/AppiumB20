@@ -28,7 +28,6 @@ public class MainPage {
     AndroidElement letsShopButton;
 
    public void login(AndroidDriver<AndroidElement> androidDriver,String chooseCountry,String name){
-
        CommonUtils.elementTap(androidDriver,country);
        CommonUtils.scroll(androidDriver,chooseCountry).click();
        this.name.sendKeys(name);
