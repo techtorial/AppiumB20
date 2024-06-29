@@ -41,9 +41,12 @@ public class CartPage {
             Assert.assertEquals(allProductPrices.get(i).getText().trim(),allPrices.get(i));
         }
         System.out.println(totalPrice.getText());
+        System.out.println(firstProductPrice);
+        System.out.println(secondProductPrice);
         double actualPrice=Double.parseDouble(totalPrice.getText().substring(2));
-        double expectedPrice=Double.parseDouble(firstProductPrice.substring(1) +
-                             Double.parseDouble(secondProductPrice.substring(1)));
+        double expectedPrice=(Double.parseDouble(firstProductPrice.substring(1))
+                               +
+                (Double.parseDouble(secondProductPrice.substring(1))));
 
         Assert.assertEquals(actualPrice,expectedPrice);
 
