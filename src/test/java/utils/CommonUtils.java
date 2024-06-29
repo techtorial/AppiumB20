@@ -6,6 +6,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
+import org.aspectj.weaver.ast.And;
 
 public class CommonUtils {
 
@@ -22,5 +23,8 @@ public class CommonUtils {
     public static AndroidElement scroll(AndroidDriver<AndroidElement> androidDriver,String locator){
         return androidDriver.findElementByAndroidUIAutomator(
                 "new UiScrollable(new UiSelector()).scrollIntoView(text(\""+locator+"\"))");
+    }
+    public static AndroidElement AndroidUIAutomator(AndroidDriver<AndroidElement> androidDriver,String name){
+        return androidDriver.findElementByAndroidUIAutomator("text(\""+name+"\")");
     }
 }
