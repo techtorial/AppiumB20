@@ -81,6 +81,8 @@ public class Task {
         AndroidElement message=androidDriver.findElement(By.id("fr.stevenfrancony.mytodolist:id/list_status"));
         Assertions.assertEquals("The list doesn't contain any element !",message.getText());
 
+        androidDriver.quit();
+
     }
 
 
